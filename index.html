@@ -1,0 +1,1910 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M&D Servicios Generales - Lavado y Desinfección Profesional en Trujillo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1e3a8a;
+            --primary-green: #059669;
+            --accent-green: #10b981;
+            --dark-blue: #1e293b;
+            --light-blue: #3b82f6;
+            --white: #ffffff;
+            --gray-light: #f8fafc;
+            --gray: #64748b;
+            --gray-dark: #334155;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            color: var(--dark-blue);
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+            color: white;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .top-bar-left {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .top-bar-left a,
+        .top-bar-left span {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .top-bar-left i {
+            font-size: 16px;
+        }
+
+        .top-bar-right {
+            display: flex;
+            gap: 15px;
+        }
+
+        .top-bar-right a {
+            color: white;
+            font-size: 18px;
+            transition: transform 0.3s;
+        }
+
+        .top-bar-right a:hover {
+            transform: scale(1.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 900;
+            font-size: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text .brand {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-blue);
+            line-height: 1;
+        }
+
+        .logo-text .brand span {
+            color: var(--primary-green);
+        }
+
+        .logo-text .tagline {
+            font-size: 10px;
+            color: var(--gray);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-blue);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-green);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-green);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--primary-green);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1003;
+            padding: 6px;
+            background: transparent;
+            border: none;
+        }
+
+        .hamburger span {
+            width: 26px;
+            height: 3px;
+            background: var(--primary-blue);
+            transition: all 0.3s ease-in-out;
+            border-radius: 2px;
+            display: block;
+            transform-origin: center;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: scale(0.2);
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Ocultos en escritorio, activos en menú lateral móvil */
+        .mobile-drawer-header,
+        .mobile-menu-info,
+        .menu-overlay {
+            display: none;
+        }
+
+        /* Hero Slider */
+        .hero-slider {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30,58,138,0.7) 0%, rgba(5,150,105,0.5) 100%);
+        }
+
+        .slide-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 2;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .slide-content .subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .slide-content h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .slide-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: var(--dark-blue);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            border-radius: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(251,191,36,0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(251,191,36,0.6);
+        }
+
+        .btn-primary i {
+            margin-left: 8px;
+        }
+
+        /* Indicadores interactivos al pie del banner */
+        .slider-dots {
+            position: absolute;
+            bottom: 35px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 5;
+            background: rgba(15, 23, 42, 0.45);
+            backdrop-filter: blur(10px);
+            padding: 8px 18px;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .slider-dots .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.45);
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .slider-dots .dot:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .slider-dots .dot.active {
+            width: 36px;
+            background: var(--accent-green);
+            box-shadow: 0 0 14px rgba(16, 185, 129, 0.8);
+        }
+
+        /* Services Cards */
+        .services-cards {
+            margin-top: -80px;
+            position: relative;
+            z-index: 10;
+            padding-bottom: 60px;
+        }
+
+        .services-cards .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .service-card-header {
+            padding: 30px 25px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:nth-child(1) .service-card-header {
+            background: linear-gradient(135deg, #f97316, #ea580c);
+        }
+
+        .service-card:nth-child(2) .service-card-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+        }
+
+        .service-card:nth-child(3) .service-card-header {
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
+        }
+
+        .service-card-header h3 {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .service-card-header .card-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 50px;
+            opacity: 0.3;
+        }
+
+        .service-card-body {
+            padding: 25px;
+        }
+
+        .service-card-body p {
+            color: var(--gray);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .service-card-body .btn-card {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--primary-blue);
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .service-card-body .btn-card:hover {
+            color: var(--primary-green);
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            background: var(--gray-light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header .section-label {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .section-header h2 {
+            font-size: 40px;
+            font-weight: 800;
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+        }
+
+        .section-header h2 span {
+            color: var(--primary-green);
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-image .experience-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            color: white;
+            padding: 20px 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .experience-badge .number {
+            font-size: 36px;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .experience-badge .text {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-content h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--dark-blue);
+        }
+
+        .about-content p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .about-feature i {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .about-feature span {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--dark-blue);
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .service-item {
+            background: var(--gray-light);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s;
+            border: 2px solid transparent;
+        }
+
+        .service-item:hover {
+            border-color: var(--primary-green);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(5,150,105,0.15);
+        }
+
+        .service-item-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .service-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .service-item:hover .service-item-image img {
+            transform: scale(1.1);
+        }
+
+        .service-item-content {
+            padding: 20px;
+        }
+
+        .service-item-content h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--dark-blue);
+        }
+
+        .service-item-content p {
+            font-size: 13px;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        /* Why Choose Us */
+        .why-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+            color: white;
+        }
+
+        .why-section .section-header h2 {
+            color: white;
+        }
+
+        .why-section .section-header h2 span {
+            color: #fbbf24;
+        }
+
+        .why-section .section-header p {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .why-section .section-label {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .why-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s;
+        }
+
+        .why-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+
+        .why-item .icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+        }
+
+        .why-item h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .why-item p {
+            font-size: 14px;
+            opacity: 0.85;
+            line-height: 1.5;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 80px 0;
+            background: var(--gray-light);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 280px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30,58,138,0.8), rgba(5,150,105,0.8));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .gallery-item .overlay i {
+            color: white;
+            font-size: 30px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--dark-blue);
+        }
+
+        .contact-info p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-detail .icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-detail .info h5 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin-bottom: 3px;
+        }
+
+        .contact-detail .info p {
+            font-size: 14px;
+            color: var(--gray);
+            margin: 0;
+        }
+
+        .contact-form {
+            background: var(--gray-light);
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .contact-form h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--dark-blue);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--dark-blue);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 18px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-green);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(5,150,105,0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-blue);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--accent-green);
+        }
+
+        .footer-col p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-green);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-social a:hover {
+            background: var(--primary-green);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 13px;
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: flex-end;
+        }
+
+        .whatsapp-btn {
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 30px;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(37,211,102,0.4);
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .phone-float {
+            width: 55px;
+            height: 55px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(30,58,138,0.4);
+            transition: all 0.3s;
+        }
+
+        .phone-float:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.4); }
+            70% { box-shadow: 0 0 0 20px rgba(37,211,102,0); }
+            100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Elevar el navbar en móviles para que overlay y drawer se proyecten limpiamente */
+            .navbar {
+                z-index: 2000;
+            }
+
+            /* Ocultar barra superior en modo responsivo */
+            .top-bar {
+                display: none !important;
+            }
+
+            /* Overlay oscuro tras el menú lateral */
+            .menu-overlay {
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background: rgba(15, 23, 42, 0.65);
+                backdrop-filter: blur(4px);
+                -webkit-backdrop-filter: blur(4px);
+                z-index: 1001 !important;
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                transition: opacity 0.3s ease, visibility 0.3s ease;
+            }
+
+            .menu-overlay.active {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+            }
+
+            .hamburger {
+                display: flex;
+                position: relative;
+                z-index: 1000;
+            }
+
+            /* Menú lateral responsivo: z-index superior para estar completamente encima del overlay */
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 320px;
+                max-width: 85vw;
+                height: 100vh;
+                background: #ffffff !important;
+                flex-direction: column;
+                padding: 25px 25px 35px;
+                box-shadow: -8px 0 35px rgba(0, 0, 0, 0.3);
+                transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+                gap: 12px;
+                z-index: 1002 !important;
+                overflow-y: auto;
+                align-items: stretch;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            /* Cabecera del menú lateral con botón de cierre */
+            .mobile-drawer-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                padding-bottom: 15px;
+                border-bottom: 1px solid #e2e8f0;
+                margin-bottom: 5px;
+            }
+
+            .drawer-close {
+                background: #f1f5f9;
+                border: none;
+                width: 38px;
+                height: 38px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--dark-blue);
+                font-size: 18px;
+                cursor: pointer;
+                transition: all 0.2s ease;
+            }
+
+            .drawer-close:hover {
+                background: #fee2e2;
+                color: #ef4444;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links li a {
+                display: block;
+                padding: 10px 0;
+                font-size: 15px;
+                border-bottom: 1px solid #f8fafc;
+            }
+
+            /* Información del Top-bar dentro del menú lateral */
+            .mobile-menu-info {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+                margin-top: auto;
+                padding-top: 20px;
+                border-top: 1px solid #e2e8f0;
+            }
+
+            .mobile-info-phone {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                color: var(--primary-blue) !important;
+                font-weight: 700 !important;
+                font-size: 15px !important;
+                text-decoration: none;
+                text-transform: none !important;
+            }
+
+            .mobile-info-phone i {
+                width: 36px;
+                height: 36px;
+                background: rgba(30, 58, 138, 0.1);
+                color: var(--primary-blue);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+                flex-shrink: 0;
+            }
+
+            .mobile-info-schedule {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+                color: var(--gray);
+                font-size: 13px;
+                line-height: 1.4;
+            }
+
+            .mobile-info-schedule i {
+                width: 36px;
+                height: 36px;
+                background: rgba(5, 150, 105, 0.1);
+                color: var(--primary-green);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+                flex-shrink: 0;
+            }
+
+            .mobile-social-links {
+                display: flex;
+                gap: 10px;
+                margin-top: 5px;
+            }
+
+            .mobile-social-links a {
+                width: 38px;
+                height: 38px;
+                background: #f1f5f9;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--dark-blue) !important;
+                font-size: 16px;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                border-bottom: none !important;
+            }
+
+            .mobile-social-links a:hover {
+                background: var(--primary-green);
+                color: white !important;
+            }
+
+            .hero-slider {
+                height: 500px;
+            }
+
+            .slide-content h1 {
+                font-size: 32px;
+            }
+
+            .slide-content p {
+                font-size: 16px;
+            }
+
+            .services-cards .container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 28px;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <a href="tel:+51951558361"><i class="fas fa-phone"></i> +51 951 558 361</a>
+                <span><i class="fas fa-clock"></i> Lunes a Domingo de: 9:00 am - 6:00 pm</span>
+            </div>
+            <div class="top-bar-right">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">M&D</div>
+                <div class="logo-text">
+                    <span class="brand">M<span>&</span>D</span>
+                    <span class="tagline">Servicios Generales</span>
+                </div>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li class="mobile-drawer-header">
+                    <div class="logo-text">
+                        <span class="brand" style="font-size: 20px; font-weight: 800; color: var(--primary-blue);">M<span style="color: var(--primary-green);">&</span>D</span>
+                        <span class="tagline" style="font-size: 9px; color: var(--gray); letter-spacing: 1px;">Servicios Generales</span>
+                    </div>
+                    <button class="drawer-close" id="drawerClose" aria-label="Cerrar menú">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </li>
+                <li><a href="#inicio" class="active">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#trabajos">Trabajos Realizados</a></li>
+                <li><a href="#contacto">Contáctenos</a></li>
+
+                <!-- Información del Top-bar trasladada al menú lateral para móvil -->
+                <li class="mobile-menu-info">
+                    <a href="tel:+51951558361" class="mobile-info-phone">
+                        <i class="fas fa-phone"></i>
+                        <span>+51 951 558 361</span>
+                    </a>
+                    <div class="mobile-info-schedule">
+                        <i class="fas fa-clock"></i>
+                        <span>Lunes a Domingo:<br>9:00 am - 6:00 pm</span>
+                    </div>
+                    <div class="mobile-social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/51951558361" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger" aria-label="Menú de navegación" role="button" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="menu-overlay" id="menuOverlay"></div>
+    </nav>
+
+    <!-- Hero Slider -->
+    <section class="hero-slider" id="inicio">
+        <div class="slide active" style="background-image: url('https://image.qwenlm.ai/public_source/7303049e-939f-40f0-ae15-7108c127f683/113f916a6-17a5-4f3f-ba68-46113bf33f1f.png')">
+            <div class="slide-content">
+                <p class="subtitle">Somos</p>
+                <h1>M&D Servicios Generales</h1>
+                <p>Lavado y desinfección profesional de muebles, colchones, sillas y tapicerías. ¡Servicio a domicilio en Trujillo, Lima, Chiclayo, Huaraz, Cajamarca y Chimbote!</p>
+                <a href="#contacto" class="btn-primary">Cotice ahora <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('https://image.qwenlm.ai/public_source/7303049e-939f-40f0-ae15-7108c127f683/12f15cf7c-b525-47ec-8c86-a99b695de76c.png')">
+            <div class="slide-content">
+                <p class="subtitle">Servicio Profesional</p>
+                <h1>Lavado de Muebles y Tapicerías</h1>
+                <p>Dejamos tus muebles como nuevos con tecnología de vapor y productos de alta calidad. ¡Resultados garantizados!</p>
+                <a href="#contacto" class="btn-primary">Cotice ahora <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('https://image.qwenlm.ai/public_source/7303049e-939f-40f0-ae15-7108c127f683/1dea237ce-ae0a-4546-b520-ec0a8f88e6a3.png')">
+            <div class="slide-content">
+                <p class="subtitle">Higiene y Salud</p>
+                <h1>Lavado y Desinfección de Colchones</h1>
+                <p>Eliminamos ácaros, bacterias y manchas. Duerme tranquilo con colchones limpios y desinfectados.</p>
+                <a href="#contacto" class="btn-primary">Cotice ahora <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <!-- Indicadores interactivos al pie del banner que señalan el punto actual -->
+        <div class="slider-dots" id="sliderDots">
+            <div class="dot active" data-slide="0" title="Punto 1"></div>
+            <div class="dot" data-slide="1" title="Punto 2"></div>
+            <div class="dot" data-slide="2" title="Punto 3"></div>
+        </div>
+    </section>
+
+    <!-- Services Cards -->
+    <section class="services-cards">
+        <div class="container">
+            <div class="service-card fade-in">
+                <div class="service-card-header">
+                    <h3>LAVADO Y SECADO DE ALFOMBRAS</h3>
+                    <i class="fas fa-rug card-icon"></i>
+                </div>
+                <div class="service-card-body">
+                    <p>Lavado profundo y secado rápido de alfombras de todo tipo. Eliminamos manchas, olores y suciedad acumulada.</p>
+                    <a href="#contacto" class="btn-card">Más información <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-card-header">
+                    <h3>LAVADO DE MUEBLES</h3>
+                    <i class="fas fa-couch card-icon"></i>
+                </div>
+                <div class="service-card-body">
+                    <p>Limpieza profesional de sofás, sillones y muebles tapizados. Recuperamos el color y la frescura original.</p>
+                    <a href="#contacto" class="btn-card">Más información <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-card-header">
+                    <h3>LAVADO Y DESINFECTADO DE COLCHONES</h3>
+                    <i class="fas fa-bed card-icon"></i>
+                </div>
+                <div class="service-card-body">
+                    <p>Desinfección completa de colchones eliminando ácaros, bacterias y alérgenos. Servicio a domicilio.</p>
+                    <a href="#contacto" class="btn-card">Más información <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="nosotros">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">Sobre Nosotros</span>
+                <h2>Conoce a <span>M&D Servicios Generales</span></h2>
+                <p>Somos una empresa especializada en lavado y desinfección profesional con servicio a domicilio en Trujillo, Lima, Chiclayo, Huaraz, Cajamarca y Chimbote.</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-image fade-in">
+                    <img src="https://image.qwenlm.ai/public_source/7303049e-939f-40f0-ae15-7108c127f683/1ce942af8-8f78-440c-9bf6-212a163a132f.png" alt="Equipo M&D">
+                    <div class="experience-badge">
+                        <div class="number">5+</div>
+                        <div class="text">Años de<br>Experiencia</div>
+                    </div>
+                </div>
+                <div class="about-content fade-in">
+                    <h3>Expertos en Limpieza y Desinfección Profesional</h3>
+                    <p>En M&D Servicios Generales nos dedicamos al lavado y desinfección profesional de colchones, muebles, sillas y tapicerías. Brindamos un servicio de alta calidad con atención personalizada y servicio a domicilio.</p>
+                    <p>Utilizamos equipos de última tecnología y productos de alta calidad para garantizar resultados excepcionales en cada trabajo que realizamos.</p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Servicio a Domicilio</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Productos de Calidad</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Personal Capacitado</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Precios Competitivos</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Atención Personalizada</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Resultados Garantizados</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="servicios">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">Nuestros Servicios</span>
+                <h2>Servicios <span>Profesionales</span></h2>
+                <p>Ofrecemos una amplia gama de servicios de limpieza y desinfección para tu hogar u oficina</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-item fade-in">
+                    <div class="service-item-image">
+                        <img src="https://image.qwenlm.ai/public_source/7303049e-939f-40f0-ae15-7108c127f683/12f15cf7c-b525-47ec-8c86-a99b695de76c.png" alt="Lavado de Muebles">
+                    </div>
+                    <div class="service-item-content">
+                        <h4>Lavado de Muebles</h4>
+                        <p>Limpieza profunda de sofás, sillones y muebles tapizados con tecnología de vapor.</p>
+                    </div>
+                </div>
+                <div class="service-item fade-in">
+                    <div class="service-item-image">
+                        <img src="https://image.qwenlm.ai/public_source/7303049e-939f-40f0-ae15-7108c127f683/1dea237ce-ae0a-4546-b520-ec0a8f88e6a3.png" alt="Lavado de Colchones">
+                    </div>
+                    <div class="service-item-content">
+                        <h4>Lavado de Colchones</h4>
+                        <p>Desinfección completa eliminando ácaros, bacterias y manchas de tus colchones.</p>
+                    </div>
+                </div>
+                <div class="service-item fade-in">
+                    <div class="service-item-image">
+                        <img src="https://image.qwenlm.ai/public_source/7303049e-939f-40f0-ae15-7108c127f683/142006a02-b500-4d7c-855a-eedfa444f513.png" alt="Lavado de Sillas">
+                    </div>
+                    <div class="service-item-content">
+                        <h4>Lavado de Sillas</h4>
+                        <p>Limpieza profesional de sillas de oficina, comedor y todo tipo de tapicerías.</p>
+                    </div>
+                </div>
+                <div class="service-item fade-in">
+                    <div class="service-item-image">
+                        <img src="https://image.qwenlm.ai/public_source/7303049e-939f-40f0-ae15-7108c127f683/113f916a6-17a5-4f3f-ba68-46113bf33f1f.png" alt="Lavado de Alfombras">
+                    </div>
+                    <div class="service-item-content">
+                        <h4>Lavado de Alfombras</h4>
+                        <p>Lavado y secado profesional de alfombras de todo tipo y tamaño.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">¿Por qué elegirnos?</span>
+                <h2>Razones para elegir <span>M&D</span></h2>
+                <p>Nos comprometemos a brindar el mejor servicio de limpieza y desinfección en Trujillo</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-item fade-in">
+                    <div class="icon"><i class="fas fa-home"></i></div>
+                    <h4>Servicio a Domicilio</h4>
+                    <p>Vamos hasta tu hogar u oficina para tu comodidad</p>
+                </div>
+                <div class="why-item fade-in">
+                    <div class="icon"><i class="fas fa-award"></i></div>
+                    <h4>Calidad Garantizada</h4>
+                    <p>Resultados profesionales con productos de alta calidad</p>
+                </div>
+                <div class="why-item fade-in">
+                    <div class="icon"><i class="fas fa-clock"></i></div>
+                    <h4>Puntualidad</h4>
+                    <p>Cumplimos con los horarios acordados siempre</p>
+                </div>
+                <div class="why-item fade-in">
+                    <div class="icon"><i class="fas fa-hand-holding-usd"></i></div>
+                    <h4>Precios Justos</h4>
+                    <p>Tarifas competitivas sin sacrificar la calidad</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="trabajos">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">Portafolio</span>
+                <h2>Trabajos <span>Realizados</span></h2>
+                <p>Mira algunos de nuestros trabajos más recientes y los resultados que logramos</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <img src="https://image.qwenlm.ai/public_source/7303049e-939f-40f0-ae15-7108c127f683/12f15cf7c-b525-47ec-8c86-a99b695de76c.png" alt="Trabajo 1">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://image.qwenlm.ai/public_source/7303049e-939f-40f0-ae15-7108c127f683/1dea237ce-ae0a-4546-b520-ec0a8f88e6a3.png" alt="Trabajo 2">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://image.qwenlm.ai/public_source/7303049e-939f-40f0-ae15-7108c127f683/142006a02-b500-4d7c-855a-eedfa444f513.png" alt="Trabajo 3">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://image.qwenlm.ai/public_source/7303049e-939f-40f0-ae15-7108c127f683/1b4206421-88fb-4a0c-a4bc-8dcb15085d35.png" alt="Trabajo 4">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://image.qwenlm.ai/public_source/7303049e-939f-40f0-ae15-7108c127f683/113f916a6-17a5-4f3f-ba68-46113bf33f1f.png" alt="Trabajo 5">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://image.qwenlm.ai/public_source/7303049e-939f-40f0-ae15-7108c127f683/1ce942af8-8f78-440c-9bf6-212a163a132f.png" alt="Trabajo 6">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contacto">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">Contáctenos</span>
+                <h2>Solicita tu <span>Cotización</span></h2>
+                <p>Estamos listos para atenderte. Contáctanos y recibe un presupuesto sin compromiso</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <h3>Información de Contacto</h3>
+                    <p>Estamos ubicados en Trujillo, Perú. Brindamos servicio a domicilio en toda la ciudad y alrededores. Contáctanos por cualquiera de nuestros medios.</p>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <div class="icon"><i class="fas fa-phone"></i></div>
+                            <div class="info">
+                                <h5>Teléfono / WhatsApp</h5>
+                                <p>+51 951 558 361</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="info">
+                                <h5>Ubicación</h5>
+                                <p>José Carlos Mariátegui, Trujillo, Perú</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="icon"><i class="fas fa-clock"></i></div>
+                            <div class="info">
+                                <h5>Horario de Atención</h5>
+                                <p>Lunes a Domingo: 9:00 am - 6:00 pm</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="icon"><i class="fas fa-envelope"></i></div>
+                            <div class="info">
+                                <h5>Email</h5>
+                                <p>contacto@mdservicios.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form fade-in">
+                    <h3>Envíanos un Mensaje</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label>Nombre Completo</label>
+                            <input type="text" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Teléfono</label>
+                            <input type="tel" placeholder="Tu teléfono" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Servicio</label>
+                            <select required>
+                                <option value="">Selecciona un servicio</option>
+                                <option>Lavado de Muebles</option>
+                                <option>Lavado de Colchones</option>
+                                <option>Lavado de Sillas</option>
+                                <option>Lavado de Alfombras</option>
+                                <option>Desinfección General</option>
+                                <option>Otro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Mensaje</label>
+                            <textarea placeholder="Cuéntanos qué necesitas..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Enviar Mensaje <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 20px;">
+                        <div class="logo-icon">M&D</div>
+                        <div class="logo-text">
+                            <span class="brand" style="color: white;">M<span style="color: var(--accent-green);">&</span>D</span>
+                            <span class="tagline" style="color: rgba(255,255,255,0.6);">Servicios Generales</span>
+                        </div>
+                    </div>
+                    <p>Lavado y desinfección profesional de colchones, muebles, sillas y tapicerías. Servicio a domicilio en Trujillo, Lima, Chiclayo, Huaraz, Cajamarca y Chimbote.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#trabajos">Trabajos</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="#">Lavado de Muebles</a></li>
+                        <li><a href="#">Lavado de Colchones</a></li>
+                        <li><a href="#">Lavado de Sillas</a></li>
+                        <li><a href="#">Lavado de Alfombras</a></li>
+                        <li><a href="#">Desinfección</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="tel:+51951558361"><i class="fas fa-phone"></i> +51 951 558 361</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Trujillo, Perú</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Lun-Dom: 9am-6pm</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 M&D Servicios Generales. Todos los derechos reservados. | Trujillo, Perú</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/51951558361" class="phone-float" title="Llamar"><i class="fas fa-phone"></i></a>
+        <a href="https://wa.me/51951558361?text=Hola,%20quiero%20cotizar%20un%20servicio%20de%20limpieza" class="whatsapp-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+    <script>
+        // Slider
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        let currentSlide = 0;
+        let slideInterval;
+
+        function goToSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            currentSlide = index;
+            if (currentSlide >= slides.length) currentSlide = 0;
+            if (currentSlide < 0) currentSlide = slides.length - 1;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            goToSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            goToSlide(currentSlide - 1);
+        }
+
+        function startSlider() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        function resetSlider() {
+            clearInterval(slideInterval);
+            startSlider();
+        }
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                goToSlide(parseInt(dot.dataset.slide));
+                resetSlider();
+            });
+        });
+
+        // Soporte táctil (swipe) para deslizar en el banner en móviles
+        const heroSlider = document.getElementById('inicio');
+        let touchStartX = 0;
+        let touchEndX = 0;
+        if (heroSlider) {
+            heroSlider.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            heroSlider.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                const diff = touchEndX - touchStartX;
+                if (Math.abs(diff) > 40) {
+                    if (diff < 0) {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                    resetSlider();
+                }
+            }, { passive: true });
+        }
+
+        startSlider();
+
+        // Control de Menú Hamburguesa y Cajón Lateral (Abrir y Cerrar)
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const drawerClose = document.getElementById('drawerClose');
+
+        function openMenu() {
+            navLinks.classList.add('active');
+            hamburger.classList.add('active');
+            if (menuOverlay) menuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+            if (menuOverlay) menuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function toggleMenu() {
+            if (navLinks.classList.contains('active')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        }
+
+        if (hamburger) hamburger.addEventListener('click', toggleMenu);
+        if (drawerClose) drawerClose.addEventListener('click', closeMenu);
+        if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
+
+        // Cerrar menú al hacer clic en cualquier enlace interno
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                closeMenu();
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por contactarnos! Nos comunicaremos contigo pronto.');
+            this.reset();
+        });
+
+        // Navbar shadow on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 5px 30px rgba(0,0,0,0.15)';
+            } else {
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
