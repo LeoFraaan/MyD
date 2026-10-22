@@ -1,0 +1,2223 @@
+/* ==========================================================================
+   M&D SERVICIOS GENERALES — DISEÑO APPLE LIGHT & FRESH
+   Estética Limpia, Tonos Claros, Pulcritud, Bento Grid & Elegancia Minimalista
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. VARIABLES DE DISEÑO (APPLE LIGHT HYGIENE PALETTE)
+   -------------------------------------------------------------------------- */
+:root {
+    /* Fondos Claros Inspirados en Agua Pura y Limpieza */
+    --bg-page: #f6faff;
+    --bg-white: #ffffff;
+    --bg-surface: #edf5fc;
+    --bg-surface-elevated: #ffffff;
+    --bg-nav-frosted: rgba(255, 255, 255, 0.88);
+
+    /* Tipografía */
+    --text-primary: #0a192f;
+    --text-secondary: #475569;
+    --text-tertiary: #64748b;
+    --text-white: #ffffff;
+
+    /* Paleta Oficial del Logo M&D (Azul Zafiro, Celeste Agua y Verde Hoja) */
+    --logo-navy: #002855;
+    --logo-blue-royal: #0056d6;
+    --logo-blue-bright: #0070f3;
+    --logo-cyan: #00b8f0;
+    --logo-green: #38b000;
+    --logo-green-leaf: #48bb78;
+
+    /* Acentos Reutilizables */
+    --accent-blue: #0056d6;
+    --accent-blue-hover: #0042a6;
+    --accent-blue-soft: rgba(0, 86, 214, 0.08);
+    --accent-cyan: #00b8f0;
+    --accent-cyan-soft: rgba(0, 184, 240, 0.1);
+    --accent-green: #38b000;
+    --accent-green-hover: #2b8700;
+    --accent-green-soft: rgba(56, 176, 0, 0.1);
+
+    /* Gradientes Oficiales del Logo M&D */
+    --grad-logo: linear-gradient(135deg, #002855 0%, #0056d6 50%, #00b8f0 100%);
+    --grad-text-blue: linear-gradient(135deg, #0056d6 0%, #00b8f0 100%);
+    --grad-blue-green: linear-gradient(135deg, #0056d6 0%, #00b8f0 55%, #48bb78 100%);
+    --grad-badge: linear-gradient(135deg, #e8f5ff 0%, #edfaf1 100%);
+
+    /* Bordes y Líneas */
+    --border-subtle: rgba(0, 40, 85, 0.08);
+    --border-card: #dbe8f6;
+    --border-hover: rgba(0, 86, 214, 0.35);
+
+    /* Radios y Espaciado */
+    --radius-pill: 9999px;
+    --radius-card: 24px;
+    --radius-sm: 14px;
+    --container-max: 1140px;
+
+    /* Sombras */
+    --shadow-sm: 0 2px 10px rgba(0, 40, 85, 0.04);
+    --shadow-card: 0 4px 20px rgba(0, 40, 85, 0.05);
+    --shadow-elevated: 0 16px 40px rgba(0, 40, 85, 0.08);
+    --shadow-blue: 0 8px 24px rgba(0, 86, 214, 0.28);
+    --shadow-green: 0 8px 24px rgba(56, 176, 0, 0.25);
+    --shadow-cyan: 0 8px 24px rgba(0, 184, 240, 0.28);
+
+    /* Transición fluida */
+    --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET & BASE
+   -------------------------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    font-size: 16px;
+    overflow-x: clip;
+    width: 100%;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    line-height: 1.5;
+    overflow-x: clip;
+    width: 100%;
+    position: relative;
+    padding-top: 104px; /* Espacio reservado para el encabezado fijo permanente */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+    border: none;
+    outline: none;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* --------------------------------------------------------------------------
+   3. ENCABEZADO FIJO APPLE (PERMANECE VISIBLE EN TODO MOMENTO AL SCROLLEAR)
+   -------------------------------------------------------------------------- */
+.site-header-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background: transparent;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Barra Superior Informativa */
+.top-notice-bar {
+    background: #eef6fd;
+    border-bottom: 1px solid rgba(0, 86, 214, 0.1);
+    padding: 7px 0;
+    font-size: 13px;
+    color: var(--text-secondary);
+    max-height: 45px;
+    opacity: 1;
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Al hacer scroll hacia abajo, la barra informativa se repliega suavemente */
+.site-header-fixed.is-scrolled .top-notice-bar {
+    max-height: 0;
+    opacity: 0;
+    padding: 0;
+    border-bottom: none;
+}
+
+.top-notice-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.top-notice-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.top-notice-left a,
+.top-notice-left span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.top-notice-left a:hover {
+    color: var(--accent-blue);
+}
+
+.top-notice-left i {
+    color: var(--accent-cyan);
+    font-size: 13px;
+}
+
+.top-notice-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.top-notice-right a {
+    color: var(--text-secondary);
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.top-notice-right a:hover {
+    color: var(--accent-blue);
+}
+
+/* --------------------------------------------------------------------------
+   4. BARRA DE NAVEGACIÓN APPLE FROSTED (BLANCA TRANSLÚCIDA CON ESPACIADO PROPORCIONAL)
+   -------------------------------------------------------------------------- */
+.apple-nav {
+    width: 100%;
+    background: var(--bg-nav-frosted);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--border-subtle);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.site-header-fixed.is-scrolled .apple-nav {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 22px rgba(0, 40, 85, 0.08);
+    border-bottom-color: rgba(0, 86, 214, 0.14);
+}
+
+.nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 0 24px;
+    gap: 20px;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+    color: var(--logo-navy);
+    flex-shrink: 0;
+    margin-right: 18px;
+}
+
+.nav-brand span:first-child {
+    background: var(--grad-logo);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-brand .brand-badge {
+    background: var(--accent-cyan-soft);
+    color: var(--accent-blue);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 2px 7px;
+    border-radius: var(--radius-pill);
+    border: 1px solid rgba(0, 184, 240, 0.25);
+    white-space: nowrap;
+}
+
+/* Ocultar elementos exclusivos de móvil en escritorio */
+.mobile-drawer-backdrop,
+.mobile-drawer-top,
+.mobile-quick-actions,
+.mobile-drawer-info,
+.mobile-drawer-socials,
+.nav-icon-m {
+    display: none;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.nav-links-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    list-style: none;
+    margin: 0 auto;
+}
+
+.nav-links-list a {
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 4px;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.nav-links-list a:hover,
+.nav-links-list a.active {
+    color: var(--accent-blue);
+}
+
+.nav-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: linear-gradient(135deg, #0056d6 0%, #0045ab 100%);
+    color: var(--text-white);
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-blue);
+    transition: var(--transition);
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.nav-cta-btn:hover {
+    background: #0042a6;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 25px rgba(0, 86, 214, 0.4);
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    color: var(--text-primary);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   5. HERO ESCENARIO APPLE SLIDER (FULL-CANVAS CON TEXTO INTEGRADO)
+   -------------------------------------------------------------------------- */
+.hero-apple-stage {
+    padding: 20px 0 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.apple-slider-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.2s ease, transform 6s ease-out;
+    transform: scale(1.04);
+}
+
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+/* Scrim / Degradado Apple de Alto Contraste */
+.hero-slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 15, 38, 0.42) 0%,
+        rgba(0, 15, 38, 0.68) 45%,
+        rgba(1, 10, 26, 0.95) 100%
+    );
+}
+
+.hero-slide-content {
+    position: absolute;
+    bottom: 44px;
+    left: 44px;
+    right: 44px;
+    z-index: 5;
+    max-width: 840px;
+    color: var(--text-white);
+}
+
+.hero-pill-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: var(--text-white);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.hero-pill-white i {
+    color: var(--logo-cyan);
+}
+
+.hero-slide-title {
+    font-size: clamp(28px, 4.2vw, 48px);
+    font-weight: 800;
+    line-height: 1.14;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    margin-bottom: 14px;
+    text-shadow: 0 3px 18px rgba(0, 0, 0, 0.95), 0 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+.hero-slide-title span {
+    color: #00f0ff;
+    text-shadow: 0 0 25px rgba(0, 240, 255, 0.85), 0 3px 12px rgba(0, 0, 0, 0.95);
+    display: inline-block;
+    font-weight: 800;
+}
+
+.hero-slide-desc {
+    font-size: clamp(14px, 1.7vw, 17px);
+    line-height: 1.6;
+    color: #ffffff;
+    margin-bottom: 24px;
+    max-width: 720px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+.hero-slide-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.btn-primary-pill {
+    background: linear-gradient(135deg, var(--logo-blue-royal) 0%, #0045ab 100%);
+    color: var(--text-white);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: var(--radius-pill);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: var(--shadow-blue);
+    transition: var(--transition);
+}
+
+.btn-primary-pill:hover {
+    background: #0042a6;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(0, 86, 214, 0.4);
+}
+
+.btn-glass-pill {
+    background: rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(12px);
+    color: var(--text-white);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: var(--radius-pill);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+}
+
+.btn-glass-pill:hover {
+    background: rgba(255, 255, 255, 0.28);
+    transform: translateY(-2px);
+}
+
+.hero-floating-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(14px);
+    padding: 9px 18px;
+    border-radius: 14px;
+    color: var(--text-primary);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    margin-left: auto;
+}
+
+.hero-floating-badge i {
+    font-size: 22px;
+    color: var(--accent-blue);
+}
+
+.hero-floating-badge .title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.hero-floating-badge .subtitle {
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+/* Controles de Navegación */
+.apple-slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--text-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 10;
+    transition: var(--transition);
+    opacity: 0;
+}
+
+.apple-slider-container:hover .apple-slider-arrow {
+    opacity: 1;
+}
+
+.arrow-prev { left: 20px; }
+.arrow-next { right: 20px; }
+
+.apple-slider-arrow:hover {
+    background: rgba(255, 255, 255, 0.45);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.apple-slider-dots {
+    position: absolute;
+    bottom: 24px;
+    right: 44px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.apple-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.45);
+    cursor: pointer;
+    transition: all 0.35s ease;
+}
+
+.apple-dot.active {
+    width: 26px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, var(--logo-cyan), var(--logo-blue-royal));
+    box-shadow: 0 0 12px rgba(0, 184, 240, 0.65);
+}
+
+/* --------------------------------------------------------------------------
+   6. BENTO GRID DE BENEFICIOS (APPLE LIGHT BENTO)
+   -------------------------------------------------------------------------- */
+.section-bento {
+    padding: 100px 0;
+}
+
+.section-header-apple {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.tagline-apple {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.heading-apple {
+    font-size: clamp(32px, 4.5vw, 48px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+    line-height: 1.15;
+    margin-bottom: 14px;
+}
+
+.subheading-apple {
+    font-size: clamp(16px, 1.8vw, 19px);
+    color: var(--text-secondary);
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 22px;
+}
+
+.bento-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-card);
+    padding: 38px 34px;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: var(--shadow-card);
+}
+
+.bento-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-elevated);
+    border-color: var(--border-hover);
+}
+
+.bento-card.col-8 { grid-column: span 8; }
+.bento-card.col-4 { grid-column: span 4; }
+.bento-card.col-6 { grid-column: span 6; }
+.bento-card.col-12 { grid-column: span 12; }
+
+.bento-card-coverage {
+    background: linear-gradient(135deg, #f0f7fe 0%, #ffffff 100%) !important;
+    border-color: rgba(0, 86, 214, 0.18) !important;
+}
+
+.city-pill {
+    background: #ffffff;
+    border: 1px solid rgba(0, 86, 214, 0.2);
+    color: var(--accent-blue);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 2px 8px rgba(0, 86, 214, 0.06);
+    display: inline-block;
+    transition: var(--transition);
+}
+
+.city-pill:hover {
+    background: var(--accent-blue);
+    color: var(--text-white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 86, 214, 0.25);
+}
+
+.bento-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-blue);
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+.bento-title {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    line-height: 1.25;
+}
+
+.bento-desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.55;
+}
+
+.bento-stat {
+    font-size: clamp(48px, 5.5vw, 68px);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--accent-blue);
+    line-height: 1;
+    margin: 20px 0 10px;
+}
+
+.bento-bg-icon {
+    position: absolute;
+    right: -15px;
+    bottom: -15px;
+    font-size: 170px;
+    color: rgba(0, 86, 214, 0.04);
+    pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   7. COMPARADOR INTERACTIVO ANTES Y DESPUÉS (APPLE LIGHT SLIDER)
+   -------------------------------------------------------------------------- */
+.section-compare {
+    padding: 100px 0;
+    background: var(--bg-surface);
+}
+
+.compare-box {
+    max-width: 960px;
+    margin: 0 auto;
+    position: relative;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    border: 1px solid var(--border-card);
+    box-shadow: var(--shadow-elevated);
+    aspect-ratio: 16 / 9;
+    user-select: none;
+    background: var(--bg-white);
+    --slider-pos: 50%;
+}
+
+.compare-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.compare-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    user-select: none;
+    pointer-events: none;
+}
+
+.compare-before {
+    z-index: 2;
+    clip-path: polygon(0 0, var(--slider-pos, 50%) 0, var(--slider-pos, 50%) 100%, 0 100%);
+}
+
+.compare-after {
+    z-index: 1;
+}
+
+.compare-divider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--slider-pos, 50%);
+    width: 4px;
+    background: linear-gradient(180deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
+    transform: translateX(-50%);
+    z-index: 10;
+    pointer-events: none;
+    box-shadow: 0 0 16px rgba(0, 184, 240, 0.65);
+}
+
+.compare-handle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 46px;
+    height: 46px;
+    background: var(--bg-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-blue);
+    font-size: 16px;
+    box-shadow: 0 4px 16px rgba(0, 86, 214, 0.25);
+    border: 2px solid var(--accent-blue);
+}
+
+.compare-range-input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: ew-resize;
+    z-index: 30;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.compare-tag {
+    position: absolute;
+    top: 20px;
+    padding: 7px 16px;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(10px);
+    color: var(--text-primary);
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: var(--radius-pill);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    z-index: 5;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    box-shadow: var(--shadow-sm);
+    pointer-events: none;
+}
+
+.tag-before { left: 20px; color: #b91c1c; }
+.tag-after { right: 20px; color: var(--accent-blue); border-color: rgba(0, 86, 214, 0.25); }
+
+/* --------------------------------------------------------------------------
+   8. SECCIÓN SOBRE NOSOTROS (EXPERIENCIA Y CONFIANZA)
+   -------------------------------------------------------------------------- */
+.section-about {
+    padding: 100px 0;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-visual {
+    position: relative;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    box-shadow: var(--shadow-elevated);
+    border: 1px solid var(--border-card);
+}
+
+.about-visual img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+}
+
+.about-experience-pill {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    background: var(--bg-white);
+    border: 1px solid var(--border-subtle);
+    padding: 18px 24px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: var(--shadow-elevated);
+}
+
+.about-experience-pill .num {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--accent-blue);
+    line-height: 1;
+}
+
+.about-experience-pill .txt {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+}
+
+.about-info h3 {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+}
+
+.about-info p {
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.about-checks-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 28px;
+}
+
+.check-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.check-item i {
+    width: 32px;
+    height: 32px;
+    background: var(--accent-blue-soft);
+    color: var(--accent-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+}
+
+.check-item span {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   9. CATÁLOGO DE SERVICIOS (TARJETAS APPLE WHITE)
+   -------------------------------------------------------------------------- */
+.section-services {
+    padding: 100px 0;
+    background: var(--bg-surface);
+}
+
+.services-grid-apple {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.service-card-apple {
+    background: var(--bg-white);
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition);
+    box-shadow: var(--shadow-card);
+}
+
+.service-card-apple:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-elevated);
+    border-color: var(--border-hover);
+}
+
+.service-card-img {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.service-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.service-card-apple:hover .service-card-img img {
+    transform: scale(1.08);
+}
+
+.service-card-content {
+    padding: 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.service-card-content h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.service-card-content p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 18px;
+}
+
+.btn-card-quote {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent-blue);
+    font-size: 13px;
+    font-weight: 700;
+    transition: gap 0.2s;
+}
+
+.btn-card-quote:hover {
+    gap: 10px;
+    color: var(--accent-blue-hover);
+}
+
+/* --------------------------------------------------------------------------
+   10. GALERÍA DE TRABAJOS REALIZADOS
+   -------------------------------------------------------------------------- */
+.section-gallery {
+    padding: 100px 0;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    height: 270px;
+    cursor: pointer;
+    box-shadow: var(--shadow-card);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.7) 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+.gallery-item .overlay span {
+    color: var(--text-white);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* --------------------------------------------------------------------------
+   11. COTIZADOR RÁPIDO INTERACTIVO A WHATSAPP (APPLE STYLE)
+   -------------------------------------------------------------------------- */
+.section-configurator {
+    padding: 100px 0;
+    background: var(--bg-surface);
+}
+
+.configurator-card {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--bg-white);
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-card);
+    padding: 44px;
+    box-shadow: var(--shadow-elevated);
+}
+
+.config-step {
+    margin-bottom: 34px;
+}
+
+.config-step-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.step-badge {
+    background: var(--accent-blue-soft);
+    color: var(--accent-blue);
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    border: 1px solid rgba(0, 86, 214, 0.2);
+    display: inline-block;
+}
+
+.config-step-title strong {
+    color: var(--accent-blue);
+}
+
+.config-options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+}
+
+.config-option {
+    border: 1px solid var(--border-card);
+    background: var(--bg-page);
+    border-radius: var(--radius-sm);
+    padding: 18px 16px;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: left;
+}
+
+.config-option:hover {
+    border-color: rgba(0, 86, 214, 0.4);
+    background: var(--bg-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.config-option.selected {
+    border-color: var(--accent-blue);
+    background: #f0f7fe;
+    box-shadow: 0 0 0 2px rgba(0, 86, 214, 0.2);
+}
+
+.config-option .opt-icon {
+    font-size: 22px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.config-option.selected .opt-icon {
+    color: var(--accent-blue);
+}
+
+.config-option .opt-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.config-option .opt-detail {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+/* Apartado para escribir libremente */
+.config-free-text-card {
+    background: #ffffff;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-sm);
+    padding: 18px;
+    transition: var(--transition);
+}
+
+.config-free-text-card:focus-within {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(0, 86, 214, 0.12);
+}
+
+.free-text-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.free-text-header i {
+    color: var(--accent-blue);
+}
+
+.config-free-text-card textarea {
+    width: 100%;
+    height: 90px;
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-page);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 14px;
+    color: var(--text-primary);
+    resize: vertical;
+    line-height: 1.5;
+    transition: var(--transition);
+}
+
+.config-free-text-card textarea:focus {
+    background: #ffffff;
+    border-color: var(--accent-blue);
+}
+
+.badge-required {
+    background: #ffe4e6;
+    color: #e11d48;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: var(--radius-pill);
+    margin-left: 6px;
+    text-transform: none;
+    letter-spacing: normal;
+    border: 1px solid rgba(225, 29, 72, 0.2);
+}
+
+.config-inputs-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 14px;
+}
+
+.config-field-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+}
+
+.config-field-wrapper label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: none;
+    letter-spacing: normal;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.req-star {
+    color: #e11d48;
+    font-weight: 800;
+}
+
+.config-field-wrapper input {
+    background: var(--bg-page);
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-sm);
+    padding: 13px 16px;
+    color: var(--text-primary);
+    font-size: 14px;
+    transition: var(--transition);
+    width: 100%;
+}
+
+.config-field-wrapper input:focus {
+    border-color: var(--accent-blue);
+    background: var(--bg-white);
+    box-shadow: 0 0 0 3px rgba(0, 86, 214, 0.12);
+}
+
+.config-field-wrapper input.input-error {
+    border-color: #ef4444 !important;
+    background: #fff5f5 !important;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.18) !important;
+}
+
+.field-error-msg {
+    display: none;
+    font-size: 11px;
+    color: #ef4444;
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+.config-field-wrapper input.input-error ~ .field-error-msg {
+    display: block;
+}
+
+.config-summary-bar {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-sm);
+    padding: 22px 28px;
+    margin-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.config-summary-info .lbl {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.config-summary-info .val {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.config-summary-info .sub-val {
+    font-size: 13px;
+    color: var(--accent-blue);
+    margin-top: 4px;
+    font-weight: 500;
+    font-style: italic;
+    max-width: 500px;
+    line-height: 1.4;
+}
+
+.btn-send-whatsapp {
+    background: #25d366;
+    color: var(--text-white);
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: var(--radius-pill);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-send-whatsapp:hover {
+    background: #20ba59;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45);
+}
+
+/* --------------------------------------------------------------------------
+   12. PREGUNTAS FRECUENTES (FAQ ACORDEÓN LUMINOSO)
+   -------------------------------------------------------------------------- */
+.section-faq {
+    padding: 100px 0;
+}
+
+.faq-list {
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--border-card);
+    padding: 22px 0;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-primary);
+    transition: color 0.2s ease;
+}
+
+.faq-question:hover {
+    color: var(--accent-blue);
+}
+
+.faq-question .icon {
+    font-size: 14px;
+    color: var(--text-tertiary);
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question .icon {
+    transform: rotate(45deg);
+    color: var(--accent-blue);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 250px;
+    padding-top: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   13. FOOTER APPLE LIGHT
+   -------------------------------------------------------------------------- */
+.apple-footer-light {
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border-card);
+    padding: 60px 0 30px;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.footer-top-notes {
+    border-bottom: 1px solid var(--border-card);
+    padding-bottom: 24px;
+    margin-bottom: 34px;
+    line-height: 1.6;
+    color: var(--text-tertiary);
+}
+
+.footer-columns-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 36px;
+    margin-bottom: 40px;
+}
+
+.footer-col h5 {
+    color: var(--text-primary);
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.footer-col p {
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.footer-col ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-col a {
+    color: var(--text-secondary);
+    transition: color 0.2s;
+}
+
+.footer-col a:hover {
+    color: var(--accent-blue);
+}
+
+.footer-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-bottom-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-card);
+    color: var(--text-tertiary);
+    font-size: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   14. BOTÓN FLOTANTE WHATSAPP
+   -------------------------------------------------------------------------- */
+.float-wa-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 999;
+    background: #25d366;
+    color: var(--text-white);
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.45);
+    transition: var(--transition);
+}
+
+.float-wa-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 14px 35px rgba(37, 211, 102, 0.6);
+}
+
+/* --------------------------------------------------------------------------
+   15. SISTEMA RESPONSIVO INTEGRAL Y CORRECCIÓN DE PROPORCIONES
+   -------------------------------------------------------------------------- */
+.mobile-menu-cta-item {
+    display: none;
+}
+
+/* Dispositivos Medianos y Tablets (<= 1024px) */
+@media (max-width: 1024px) {
+    .apple-slider-container {
+        height: 540px;
+        border-radius: 24px;
+    }
+
+    .hero-slide-content {
+        bottom: 38px;
+        left: 36px;
+        right: 36px;
+    }
+
+    .hero-slide-title {
+        font-size: 36px;
+    }
+
+    .hero-slide-desc {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+
+    .bento-grid {
+        gap: 16px;
+    }
+
+    .bento-card.col-8,
+    .bento-card.col-4,
+    .bento-card.col-6 {
+        grid-column: span 12;
+    }
+
+    .bento-card {
+        padding: 30px 26px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-visual img {
+        height: 380px;
+    }
+
+    .services-grid-apple {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .footer-columns-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+/* Dispositivos Móviles (<= 768px) */
+@media (max-width: 768px) {
+    body {
+        padding-top: 56px;
+    }
+
+    /* Contenedor general */
+    .container {
+        padding: 0 16px;
+    }
+
+    /* En móviles ocultamos la barra informativa superior para dejar una interfaz limpia y espaciosa */
+    .top-notice-bar {
+        display: none;
+    }
+
+    /* Barra de Navegación Móvil */
+    .nav-inner {
+        height: 56px;
+    }
+
+    .nav-brand {
+        font-size: 16px;
+    }
+
+    .nav-brand .brand-badge {
+        font-size: 10px;
+        padding: 2px 6px;
+    }
+
+    .nav-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        background: var(--bg-surface);
+        border: 1px solid var(--border-card);
+        color: var(--text-primary);
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    .nav-cta-btn {
+        display: none;
+    }
+
+    /* Fondo oscuro traslúcido para cerrar drawer */
+    .mobile-drawer-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 15, 35, 0.55);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        z-index: 1040;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .mobile-drawer-backdrop.open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* Cajón lateral Apple Mobile Drawer */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: min(340px, 86vw);
+        height: 100vh;
+        height: 100dvh;
+        overflow-y: auto;
+        background: #ffffff;
+        flex-direction: column;
+        padding: 20px;
+        gap: 16px;
+        border-left: 1px solid var(--border-card);
+        transform: translateX(105%);
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: -10px 0 40px rgba(0, 40, 85, 0.2);
+        z-index: 1050;
+    }
+
+    .nav-menu.open {
+        transform: translateX(0);
+    }
+
+    /* Cabecera del drawer */
+    .mobile-drawer-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border-card);
+        width: 100%;
+    }
+
+    .mobile-drawer-close {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: var(--bg-surface);
+        border: 1px solid var(--border-card);
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        cursor: pointer;
+        transition: var(--transition);
+    }
+
+    .mobile-drawer-close:hover {
+        background: #fee2e2;
+        color: #ef4444;
+    }
+
+    /* Botones de acción rápida en móvil */
+    .mobile-quick-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .mobile-quick-btn {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        transition: var(--transition);
+    }
+
+    .mobile-quick-btn.call-btn {
+        background: linear-gradient(135deg, #0056d6 0%, #0042a6 100%);
+        color: #ffffff;
+        box-shadow: 0 4px 14px rgba(0, 86, 214, 0.25);
+    }
+
+    .mobile-quick-btn.wa-btn {
+        background: linear-gradient(135deg, #25d366 0%, #1da851 100%);
+        color: #ffffff;
+        box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+    }
+
+    .mobile-quick-btn i {
+        font-size: 18px;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.22);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .mobile-quick-btn .q-label {
+        font-size: 11px;
+        font-weight: 500;
+        opacity: 0.9;
+        display: block;
+        line-height: 1.2;
+    }
+
+    .mobile-quick-btn .q-val {
+        font-size: 14px;
+        font-weight: 700;
+        display: block;
+    }
+
+    /* Enlaces del drawer */
+    .nav-links-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+        list-style: none;
+    }
+
+    .nav-links-list li {
+        width: 100%;
+    }
+
+    .nav-links-list a {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 10px 8px;
+        color: var(--text-primary);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        border-radius: 8px;
+        transition: all 0.2s ease;
+    }
+
+    .nav-links-list a:hover {
+        background: var(--bg-surface);
+        color: var(--accent-blue);
+        padding-left: 14px;
+    }
+
+    .nav-icon-m {
+        display: inline-block;
+        width: 20px;
+        color: var(--accent-blue);
+        font-size: 14px;
+        text-align: center;
+    }
+
+    /* Información adicional */
+    .mobile-drawer-info {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 12px 14px;
+        background: var(--bg-surface);
+        border-radius: 12px;
+        border: 1px solid var(--border-card);
+        font-size: 11px;
+        color: var(--text-secondary);
+        line-height: 1.45;
+        width: 100%;
+    }
+
+    .drawer-info-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .drawer-info-item i {
+        color: var(--accent-blue);
+        margin-top: 2px;
+        font-size: 12px;
+        flex-shrink: 0;
+    }
+
+    /* Redes sociales */
+    .mobile-drawer-socials {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        padding-top: 6px;
+        width: 100%;
+    }
+
+    .mobile-drawer-socials a {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: var(--bg-surface);
+        border: 1px solid var(--border-card);
+        color: var(--text-secondary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        transition: var(--transition);
+    }
+
+    .mobile-drawer-socials a:hover {
+        background: var(--accent-blue);
+        color: #ffffff;
+        transform: translateY(-2px);
+    }
+
+    /* Hero Escenario Apple Slider */
+    .hero-apple-stage {
+        padding: 12px 0 35px;
+    }
+
+    .apple-slider-container {
+        height: 560px;
+        border-radius: 20px;
+    }
+
+    .hero-slide-content {
+        bottom: 22px;
+        left: 16px;
+        right: 16px;
+        max-width: 100%;
+    }
+
+    .hero-pill-white {
+        font-size: 11px;
+        padding: 4px 10px;
+        margin-bottom: 10px;
+        gap: 6px;
+    }
+
+    .hero-slide-title {
+        font-size: clamp(24px, 6.5vw, 30px);
+        line-height: 1.15;
+        margin-bottom: 10px;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
+    }
+
+    .hero-slide-desc {
+        font-size: 13px;
+        line-height: 1.5;
+        margin-bottom: 16px;
+        color: rgba(255, 255, 255, 0.95);
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    .hero-slide-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .btn-primary-pill,
+    .btn-glass-pill {
+        width: 100%;
+        justify-content: center;
+        padding: 13px 20px;
+        font-size: 14px;
+    }
+
+    .hero-floating-badge {
+        margin-left: 0;
+        width: 100%;
+        justify-content: flex-start;
+        padding: 8px 14px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.96);
+    }
+
+    .hero-floating-badge i {
+        font-size: 20px;
+    }
+
+    .hero-floating-badge .title {
+        font-size: 12px;
+    }
+
+    .hero-floating-badge .subtitle {
+        font-size: 10px;
+    }
+
+    .apple-slider-arrow {
+        display: none; /* Desactivado en móvil: el swipe táctil es mucho más intuitivo */
+    }
+
+    .apple-slider-dots {
+        bottom: 8px;
+        right: 50%;
+        transform: translateX(50%);
+        gap: 6px;
+    }
+
+    /* Encabezados de Sección */
+    .section-bento,
+    .section-compare,
+    .section-about,
+    .section-services,
+    .section-gallery,
+    .section-configurator,
+    .section-faq {
+        padding: 60px 0;
+    }
+
+    .section-header-apple {
+        margin-bottom: 35px;
+    }
+
+    .heading-apple {
+        font-size: clamp(24px, 6vw, 32px);
+        line-height: 1.2;
+    }
+
+    .subheading-apple {
+        font-size: 14px;
+    }
+
+    /* Bento Grid */
+    .bento-card {
+        padding: 24px 18px;
+        border-radius: 18px;
+    }
+
+    .bento-title {
+        font-size: 19px;
+    }
+
+    .bento-desc {
+        font-size: 13px;
+    }
+
+    .bento-stat {
+        font-size: 42px;
+        margin: 12px 0 6px;
+    }
+
+    .bento-bg-icon {
+        font-size: 85px;
+        right: -10px;
+        bottom: -10px;
+    }
+
+    /* Comparador Antes y Después */
+    .compare-box {
+        border-radius: 18px;
+        aspect-ratio: 4 / 3;
+    }
+
+    .compare-tag {
+        top: 12px;
+        padding: 5px 12px;
+        font-size: 10px;
+    }
+
+    .tag-before { left: 12px; }
+    .tag-after { right: 12px; }
+
+    .compare-handle {
+        width: 38px;
+        height: 38px;
+        font-size: 13px;
+    }
+
+    /* Sección Nosotros */
+    .about-visual img {
+        height: 270px;
+    }
+
+    .about-experience-pill {
+        bottom: 12px;
+        right: 12px;
+        padding: 10px 14px;
+        border-radius: 12px;
+    }
+
+    .about-experience-pill .num {
+        font-size: 26px;
+    }
+
+    .about-experience-pill .txt {
+        font-size: 9px;
+    }
+
+    .about-info h3 {
+        font-size: 22px;
+    }
+
+    .about-info p {
+        font-size: 14px;
+    }
+
+    .about-checks-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    /* Servicios */
+    .services-grid-apple {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .service-card-img {
+        height: 180px;
+    }
+
+    .service-card-content {
+        padding: 18px;
+    }
+
+    .service-card-content h4 {
+        font-size: 17px;
+    }
+
+    .service-card-content p {
+        font-size: 13px;
+    }
+
+    /* Galería */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .gallery-item {
+        height: 150px;
+        border-radius: 14px;
+    }
+
+    .gallery-item .overlay span {
+        font-size: 11px;
+    }
+
+    /* Cotizador Interactivo */
+    .configurator-card {
+        padding: 22px 16px;
+        border-radius: 20px;
+    }
+
+    .config-step {
+        margin-bottom: 24px;
+    }
+
+    .config-step-title {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .config-options-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .config-option {
+        padding: 12px 10px;
+        border-radius: 12px;
+    }
+
+    .config-option .opt-icon {
+        font-size: 18px;
+        margin-bottom: 4px;
+    }
+
+    .config-option .opt-name {
+        font-size: 13px;
+    }
+
+    .config-option .opt-detail {
+        font-size: 10px;
+    }
+
+    .config-inputs-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .config-inputs-row textarea {
+        grid-column: span 1;
+        height: 70px;
+    }
+
+    .config-summary-bar {
+        padding: 16px;
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        gap: 14px;
+        border-radius: 14px;
+    }
+
+    .config-summary-info .val {
+        font-size: 15px;
+    }
+
+    .btn-send-whatsapp {
+        width: 100%;
+        justify-content: center;
+        font-size: 14px;
+        padding: 13px 18px;
+    }
+
+    /* FAQ */
+    .faq-question {
+        font-size: 15px;
+    }
+
+    .faq-answer {
+        font-size: 13px;
+    }
+
+    /* Footer */
+    .apple-footer-light {
+        padding: 40px 0 25px;
+    }
+
+    .footer-columns-grid {
+        grid-template-columns: 1fr;
+        gap: 26px;
+    }
+
+    .footer-bottom-bar {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    /* Botón Flotante */
+    .float-wa-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 26px;
+        bottom: 18px;
+        right: 18px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   16. EFECTOS GLOBALES DE APARICIÓN, DESVANECIDO & CONTADORES (APPLE STYLE)
+   -------------------------------------------------------------------------- */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.12s; }
+.reveal-delay-2 { transition-delay: 0.22s; }
+.reveal-delay-3 { transition-delay: 0.32s; }
+.reveal-delay-4 { transition-delay: 0.42s; }
+
+/* Micro-animación sutil de pulso */
+@keyframes pulseSubtle {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+    100% { transform: scale(1); }
+}
+
+.float-wa-btn {
+    animation: pulseSubtle 3.5s ease-in-out infinite;
+}
+
+.float-wa-btn:hover {
+    animation: none;
+}
